@@ -21,15 +21,16 @@ Route::get('/', function () {
 Route::get('/contact', 'MessagesController@getContact');
 Route::post('/contact/submit', 'MessagesController@submit');
 Route::get('/contact/{id}/edit', 'MessagesController@edit');
-Route::post('/contact/{id}', 'MessagesController@update');
-Route::delete('/contact/{id}', 'PhotosController@destroy');
+Route::put('/contact/{id}', 'MessagesController@update');
+Route::delete('/contact/{id}', 'MessagesController@destroy');
 
 Route::get('/gallery', 'AlbumsController@index');
 Route::get('/gallery/create', 'AlbumsController@create');
 Route::post('/gallery/store', 'AlbumsController@store');
 Route::get('/gallery/{id}', 'AlbumsController@show');
 Route::get('/gallery/{id}/edit', 'AlbumsController@edit');
-Route::post('/gallery/update', 'AlbumsController@update');
+Route::put('/gallery/{id}', 'AlbumsController@update');
+Route::delete('/gallery/{id}', 'AlbumsController@destroy');
 
 
 Route::get('/photos/create/{id}', 'PhotosController@create');

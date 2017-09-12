@@ -19,6 +19,10 @@
                 <img class="" width="20%" src="storage/album_covers/{{$album->cover_image}}" alt="{{$album->name}}">
               </a>
               <a href="/gallery/{{$album->id}}/edit" class="btn btn-default">Edit</a>
+              {!!Form::open(['action' => ['AlbumsController@destroy', $album->id], 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")'])!!}
+                {{Form::hidden('_method', 'DELETE')}}
+                {{Form::submit('Delete Photo', ['class' => 'button alert'])}}
+              {!!Form::close()!!}
              <br>
              <h4>{{$album->name}}</h4>
               @else
@@ -27,6 +31,10 @@
                     <img class="thumbnail" width="20%" src="storage/album_covers/{{$album->cover_image}}" alt="{{$album->name}}">
                   </a>
                     <a href="/gallery/{{$album->id}}/edit" class="btn btn-default">Edit</a>
+                    {!!Form::open(['action' => ['AlbumsController@destroy', $album->id], 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure?")'])!!}
+                      {{Form::hidden('_method', 'DELETE')}}
+                      {{Form::submit('Delete Photo', ['class' => 'button alert'])}}
+                    {!!Form::close()!!}
                     <h1>this is being done first</h1>
                   <br>
                   <h4>{{$album->name}}</h4>
