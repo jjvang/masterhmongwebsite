@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // add One to many relationships
+    public function messages(){
+      return $this->hasMany('App\Message');
+    }
 }
